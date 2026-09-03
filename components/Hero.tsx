@@ -5,11 +5,11 @@ export default function Hero() {
         Built for insurance brokers
       </p>
 
-      <h1 className="mx-auto max-w-3xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+      <h1 className="mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-slate-900 sm:text-7xl">
         Never let a lead go cold again
       </h1>
 
-      <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+      <p className="mx-auto mt-8 max-w-xl text-balance text-xl leading-8 text-slate-600">
         DPA keeps your pipeline, tasks, reminders, and documents in one place —
         so you spend less time chasing spreadsheets and more time closing
         policies.
