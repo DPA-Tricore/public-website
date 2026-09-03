@@ -33,3 +33,7 @@ Large numeric display (e.g. pricing figures) follows the same rule as headings: 
 ## Reference implementation
 
 See [`components/Hero.tsx`](../components/Hero.tsx) for the Display tier, and [`components/Features.tsx`](../components/Features.tsx), [`components/HowItWorks.tsx`](../components/HowItWorks.tsx), [`components/Pricing.tsx`](../components/Pricing.tsx), [`components/CTA.tsx`](../components/CTA.tsx) for the H2/Body-lg pattern applied consistently across sections.
+
+## Related documentation
+
+- [Color-Guidelines.md](./Color-Guidelines.md) — the same "small set of reusable tokens, not ad hoc choices" discipline applied to color.
