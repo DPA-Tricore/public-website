@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="mx-auto flex min-h-[calc(80svh-4rem)] max-w-6xl flex-col items-center justify-center px-6 text-center">
+    <section className="mx-auto flex min-h-[calc(90svh-4rem)] max-w-6xl flex-col items-center justify-center px-6 text-center">
       <p className="mb-4 inline-block rounded-full bg-indigo-50 px-4 py-1.5 text-sm font-medium text-indigo-700">
         Built for insurance brokers
       </p>
