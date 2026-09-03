@@ -8,7 +8,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type {
-  NavLink,
   Feature,
   Step,
   PricingTier,
@@ -19,12 +18,6 @@ export const SITE = {
   name: "DPA",
   tagline: "The CRM built for insurance brokers",
 };
-
-export const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-];
 
 export const FEATURES: Feature[] = [
   {
