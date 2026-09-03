@@ -10,7 +10,7 @@ export default function Hero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-bottom"
+        className="hero-zoom object-cover object-bottom"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/55 to-black/0" />
 
