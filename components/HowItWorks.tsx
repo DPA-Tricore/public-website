@@ -4,10 +4,10 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-24">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+        <h2 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl">
           Up and running in a day, not a quarter
         </h2>
-        <p className="mt-4 text-lg text-slate-600">
+        <p className="mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-slate-600">
           No lengthy onboarding. Bring your leads in and start working your
           pipeline the same day.
         </p>
@@ -19,7 +19,7 @@ export default function HowItWorks() {
             <span className="text-sm font-semibold text-indigo-600">
               {step.number}
             </span>
-            <h3 className="mt-2 text-lg font-semibold text-slate-900">
+            <h3 className="mt-2 text-lg font-semibold tracking-tight text-slate-900">
               {step.title}
             </h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">

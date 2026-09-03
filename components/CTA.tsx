@@ -2,10 +2,10 @@ export default function CTA() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
       <div className="rounded-3xl bg-indigo-600 px-8 py-16 text-center sm:px-16">
-        <h2 className="mx-auto max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h2 className="mx-auto max-w-xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
           Ready to organize your book of business?
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-lg text-indigo-100">
+        <p className="mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-indigo-100">
           Import your leads in minutes and see your whole pipeline in one
           place.
         </p>

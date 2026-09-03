@@ -6,10 +6,10 @@ export default function Pricing() {
     <section id="pricing" className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl">
             Simple, transparent pricing
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-slate-600">
             Start free. Upgrade as your team grows.
           </p>
         </div>
@@ -24,13 +24,13 @@ export default function Pricing() {
                   : "border-slate-200 bg-white"
               }`}
             >
-              <h3 className="text-lg font-semibold text-slate-900">
+              <h3 className="text-lg font-semibold tracking-tight text-slate-900">
                 {tier.name}
               </h3>
               <p className="mt-2 text-sm text-slate-600">{tier.description}</p>
 
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-semibold text-slate-900">
+                <span className="text-4xl font-semibold tracking-tight text-slate-900">
                   {tier.price}
                 </span>
                 <span className="text-sm text-slate-500">

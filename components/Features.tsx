@@ -5,10 +5,10 @@ export default function Features() {
     <section id="features" className="border-t border-slate-200 bg-slate-50">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl">
             Everything your pipeline needs
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-slate-600">
             Purpose-built for how brokers actually work — not a generic CRM
             stretched to fit.
           </p>
@@ -25,7 +25,7 @@ export default function Features() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50">
                   <Icon className="h-5 w-5 text-indigo-600" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">
+                <h3 className="mt-4 text-lg font-semibold tracking-tight text-slate-900">
                   {feature.title}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
