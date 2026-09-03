@@ -12,6 +12,7 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover object-bottom"
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/55 to-black/0" />
 
       <div className="relative">
         <h1 className="mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-white sm:text-7xl">
