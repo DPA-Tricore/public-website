@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 // public/hero-background.jpg — free-license photo (Pexels, photographer Ron Lach)
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[90svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
       <Image
         src="/hero-background.jpg"
         alt=""
@@ -24,6 +25,14 @@ export default function Hero() {
           close more policies, not spreadsheets.
         </p>
       </div>
+
+      <a
+        href="#features"
+        aria-label="Scroll to see more"
+        className="animate-bounce-arrow absolute inset-x-0 bottom-8 mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white/10"
+      >
+        <ChevronDown className="h-5 w-5" />
+      </a>
     </section>
   );
 }
