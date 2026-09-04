@@ -21,15 +21,14 @@ Rules for text sizing on this site.
 
 Big numbers (like pricing) follow the heading rule: `text-4xl font-semibold tracking-tight`.
 
-## Nav height
+## Nav
 
-The navbar isn't sized in isolation — it has to carry the same visual weight as the page it sits on. Three constraints, in order:
+Two constraints on nav height, regardless of style:
 
 1. Touch targets need to be at least 44px tall (Apple HIG) or 48px (Material) — the floor for anything interactive.
 2. Height should land on an 8px grid stop (56 / 64 / 72 / 80px), not an arbitrary value.
-3. It should feel like it belongs to the rest of the page. A page with a bold 72px display headline needs a taller, bigger-type nav than a page with small body-sized text — otherwise the nav reads as a thin strip bolted onto a bolder page.
 
-Current: `h-[4.5rem]` (72px) bar, `text-lg` logo, `px-4 py-2` primary button. (80px was tried and felt too heavy — 72px is the balance point for this page.) If the type scale above changes significantly, revisit this.
+Beyond that, the nav's weight is a style choice, not a formula. We tried scaling it up to match the bold 72px hero headline (80px bar, bigger logo, two buttons) — it read as too heavy. Settled on the opposite: minimal chrome so the content carries the page. Current: `h-14` (56px) bar, `text-base` wordmark, a single icon-only link (arrow-up-right, `aria-label="Go to console"`) instead of Log in / Get started buttons.
 
 ## How to use it
 
