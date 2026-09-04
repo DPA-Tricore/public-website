@@ -1,34 +1,100 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { smoothScrollTo } from "@/lib/scroll";
+import { HERO_SLIDES } from "@/lib/constants/landing";
 
-// public/hero-background.mp4 — free-license video (Pexels, photographer Ron Lach)
-// public/hero-background.jpg — poster frame / no-JS fallback, same source
+const SLIDE_DURATION = 6000;
+
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const goToSlide = (index: number) => {
+    setActiveIndex(index);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, SLIDE_DURATION);
+  };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, SLIDE_DURATION);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      if (index === activeIndex) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeIndex]);
+
+  const slide = HERO_SLIDES[activeIndex];
+
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/hero-background.jpg"
-        className="absolute inset-0 h-full w-full object-cover object-bottom"
-      >
-        <source src="/hero-background.mp4" type="video/mp4" />
-      </video>
+      {HERO_SLIDES.map((s, index) => (
+        <video
+          key={s.video}
+          ref={(el) => {
+            videoRefs.current[index] = el;
+          }}
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster={s.poster}
+          className={`absolute inset-0 h-full w-full object-cover object-bottom transition-opacity duration-1000 ease-in-out ${
+            index === activeIndex ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <source src={s.video} type="video/mp4" />
+        </video>
+      ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/0" />
 
       <div className="relative">
-        <h1 className="animate-fade-up mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-white sm:text-7xl">
-          Never let leads go cold
+        <h1
+          key={`headline-${activeIndex}`}
+          className="animate-fade-up mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-white sm:text-7xl"
+        >
+          {slide.headline}
         </h1>
 
-        <p className="animate-fade-up mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-white/80 [animation-delay:150ms]">
-          DPA keeps your pipeline, tasks, and documents in one place — so you
-          close more policies, not spreadsheets.
+        <p
+          key={`description-${activeIndex}`}
+          className="animate-fade-up mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-white/80 [animation-delay:150ms]"
+        >
+          {slide.description}
         </p>
+
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {HERO_SLIDES.map((s, index) => (
+            <button
+              key={s.video}
+              type="button"
+              onClick={() => goToSlide(index)}
+              aria-label={`Show slide ${index + 1}`}
+              aria-current={index === activeIndex}
+              className={`h-1.5 rounded-full transition-all ${
+                index === activeIndex
+                  ? "w-6 bg-white"
+                  : "w-1.5 bg-white/40 hover:bg-white/60"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       <a

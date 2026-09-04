@@ -11,6 +11,13 @@ export interface Feature {
   description: string;
 }
 
+export interface HeroSlide {
+  video: string;
+  poster: string;
+  headline: string;
+  description: string;
+}
+
 export interface Step {
   number: string;
   title: string;
