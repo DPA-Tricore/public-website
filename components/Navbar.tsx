@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { SITE } from "@/lib/constants/landing";
 
 export default function Navbar() {
@@ -12,10 +11,9 @@ export default function Navbar() {
 
         <a
           href="#"
-          aria-label="Go to console"
-          className="rounded-full p-2 text-white transition-colors hover:bg-white/10"
+          className="text-sm font-medium text-white transition-colors hover:text-white/80"
         >
-          <ArrowUpRight className="h-5 w-5" />
+          Console
         </a>
       </nav>
     </header>
