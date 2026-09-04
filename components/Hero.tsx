@@ -3,7 +3,7 @@ import Image from "next/image";
 // public/hero-background.jpg — free-license photo (Pexels, photographer Ron Lach)
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(90svh-4rem)] flex-col items-center justify-center overflow-hidden px-6 text-center">
+    <section className="relative flex min-h-[calc(90svh-5rem)] flex-col items-center justify-center overflow-hidden px-6 text-center">
       <Image
         src="/hero-background.jpg"
         alt=""
