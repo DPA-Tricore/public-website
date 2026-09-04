@@ -1,21 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { smoothScrollTo } from "@/lib/scroll";
 
-// public/hero-background.jpg — free-license photo (Pexels, photographer Ron Lach)
+// public/hero-background.mp4 — free-license video (Pexels, photographer Ron Lach)
+// public/hero-background.jpg — poster frame / no-JS fallback, same source
 export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
-      <Image
-        src="/hero-background.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="hero-zoom object-cover object-bottom"
-      />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/hero-background.jpg"
+        className="absolute inset-0 h-full w-full object-cover object-bottom"
+      >
+        <source src="/hero-background.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/0" />
 
       <div className="relative">
