@@ -29,7 +29,7 @@ The navbar isn't sized in isolation — it has to carry the same visual weight a
 2. Height should land on an 8px grid stop (56 / 64 / 72 / 80px), not an arbitrary value.
 3. It should feel like it belongs to the rest of the page. A page with a bold 72px display headline needs a taller, bigger-type nav than a page with small body-sized text — otherwise the nav reads as a thin strip bolted onto a bolder page.
 
-Current: `h-20` (80px) bar, `text-xl` logo, `px-5 py-2.5` primary button. If the type scale above changes significantly, revisit this.
+Current: `h-[4.5rem]` (72px) bar, `text-lg` logo, `px-4 py-2` primary button. (80px was tried and felt too heavy — 72px is the balance point for this page.) If the type scale above changes significantly, revisit this.
 
 ## How to use it
 
