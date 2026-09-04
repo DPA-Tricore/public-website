@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { smoothScrollTo } from "@/lib/scroll";
 
 // public/hero-background.jpg — free-license photo (Pexels, photographer Ron Lach)
 export default function Hero() {
@@ -28,6 +31,10 @@ export default function Hero() {
 
       <a
         href="#features"
+        onClick={(e) => {
+          e.preventDefault();
+          smoothScrollTo("features");
+        }}
         aria-label="Scroll to see more"
         className="animate-bounce-arrow absolute inset-x-0 bottom-8 mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white/10"
       >

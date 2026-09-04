@@ -1,4 +1,7 @@
+"use client";
+
 import { FOOTER_COLUMNS, SITE } from "@/lib/constants/landing";
+import { smoothScrollTo } from "@/lib/scroll";
 
 export default function Footer() {
   return (
@@ -22,6 +25,12 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      onClick={(e) => {
+                        if (link.href.length > 1 && link.href.startsWith("#")) {
+                          e.preventDefault();
+                          smoothScrollTo(link.href.slice(1));
+                        }
+                      }}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
