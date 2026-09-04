@@ -15,11 +15,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/0" />
 
       <div className="relative">
-        <h1 className="mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-white sm:text-7xl">
+        <h1 className="animate-fade-up mx-auto max-w-4xl text-balance text-6xl font-semibold leading-[1.05] tracking-tight text-white sm:text-7xl">
           Never let leads go cold
         </h1>
 
-        <p className="mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-white/80">
+        <p className="animate-fade-up mx-auto mt-4 max-w-xl text-balance text-xl leading-8 text-white/80 [animation-delay:150ms]">
           DPA keeps your pipeline, tasks, and documents in one place — so you
           close more policies, not spreadsheets.
         </p>
