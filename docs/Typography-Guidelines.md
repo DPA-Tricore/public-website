@@ -30,7 +30,9 @@ Two constraints on nav height, regardless of style:
 
 Beyond that, the nav's weight is a style choice, not a formula. We tried scaling it up to match the bold 72px hero headline (80px bar, bigger logo, two buttons) — it read as too heavy. Settled on the opposite: minimal chrome so the content carries the page. Current: `h-14` (56px) bar, `text-base` wordmark, a single icon-only link (arrow-up-right, `aria-label="Go to console"`) instead of Log in / Get started buttons.
 
-The nav also has no bar of its own — it's `absolute` over the hero image (white text, no background), not `sticky` or `fixed`. It scrolls away naturally with the hero instead of persisting over the white sections below, which avoids the classic "white text becomes invisible on a white background" problem without needing any scroll-tracking JS. Because it's out of the normal document flow, the hero's `min-h-[90svh]` no longer needs to subtract the nav's height — that only applied when the nav actually took up flow space.
+The nav also has no bar of its own — it's `absolute` over the hero image (white text, no background), not `sticky` or `fixed`. It scrolls away naturally with the hero instead of persisting over the white sections below, which avoids the classic "white text becomes invisible on a white background" problem without needing any scroll-tracking JS. Because it's out of the normal document flow, the hero's height doesn't need to subtract the nav's height — that only applied when the nav actually took up flow space.
+
+The hero itself is a full `min-h-[100svh]` — an earlier version used 90% with the next section peeking in at the bottom as a scroll cue, but that peek sliced straight through a heading mid-word, which read as broken rather than intentional. Replaced it with a full-screen hero and an explicit bouncing chevron-down at the bottom, linking to `#features` — an unambiguous scroll cue instead of an implicit one.
 
 ## How to use it
 
