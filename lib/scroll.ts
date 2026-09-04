@@ -1,8 +1,8 @@
-function easeInOutCubic(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function easeOutQuart(t: number): number {
+  return 1 - Math.pow(1 - t, 4);
 }
 
-export function smoothScrollTo(targetId: string, duration = 800) {
+export function smoothScrollTo(targetId: string, duration = 500) {
   const target = document.getElementById(targetId);
   if (!target) return;
 
@@ -24,7 +24,7 @@ export function smoothScrollTo(targetId: string, duration = 800) {
   function step(now: number) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+    window.scrollTo(0, startY + distance * easeOutQuart(progress));
     if (progress < 1) requestAnimationFrame(step);
   }
 
