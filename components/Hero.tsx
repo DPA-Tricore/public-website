@@ -5,29 +5,27 @@ import { ChevronDown } from "lucide-react";
 import { smoothScrollTo } from "@/lib/scroll";
 import { HERO_SLIDES } from "@/lib/constants/landing";
 
-const SLIDE_DURATION = 6000;
+const DEFAULT_SLIDE_DURATION = 6000;
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const goToSlide = (index: number) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveIndex(index);
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, SLIDE_DURATION);
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
+    const duration = HERO_SLIDES[activeIndex].duration ?? DEFAULT_SLIDE_DURATION;
+    timeoutRef.current = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, SLIDE_DURATION);
+    }, duration);
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [activeIndex]);
 
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
@@ -53,7 +51,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          preload="auto"
+          preload={index === activeIndex ? "auto" : "none"}
           poster={s.poster}
           className={`absolute inset-0 h-full w-full object-cover object-bottom transition-opacity duration-1000 ease-in-out ${
             index === activeIndex ? "opacity-100" : "opacity-0"

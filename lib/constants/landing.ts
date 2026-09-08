@@ -26,30 +26,29 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     video: "/hero-pipeline.mp4",
     poster: "/hero-pipeline.jpg",
-    headline: "Never let leads go cold",
-    description:
-      "DPA keeps your pipeline, tasks, and documents in one place — so you close more policies, not spreadsheets.",
+    headline: "Simple",
+    description: "Open it up and start working.",
+    duration: 2500,
   },
   {
     video: "/hero-automation.mp4",
     poster: "/hero-automation.jpg",
-    headline: "Automate the busywork",
-    description:
-      "Trigger tasks, emails, and status changes automatically as a lead moves through your pipeline — so follow-ups never depend on memory.",
+    headline: "Automation",
+    description: "You set it up once, and it takes care of itself from there.",
   },
   {
     video: "/hero-ai.mp4",
     poster: "/hero-ai.jpg",
-    headline: "AI that works the pipeline with you",
-    description:
-      "Smart suggestions surface which leads need attention next, so your team spends time closing, not sorting.",
+    duration: 12300,
+    headline: "Just ask",
+    description: "You tell it what you need, and it's done.",
   },
   {
     video: "/hero-team.mp4",
     poster: "/hero-team.jpg",
-    headline: "Built for the whole team",
-    description:
-      "Organize agents into teams under your agency, with role-based access that keeps every book of business in the right hands.",
+    duration: 16400,
+    headline: "Organized",
+    description: "Every lead has one place — exactly where you left it.",
   },
 ];
 

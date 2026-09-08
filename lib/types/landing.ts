@@ -16,6 +16,7 @@ export interface HeroSlide {
   poster: string;
   headline: string;
   description: string;
+  duration?: number;
 }
 
 export interface Step {
