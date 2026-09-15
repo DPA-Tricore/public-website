@@ -1,14 +1,6 @@
-import {
-  Workflow,
-  BellRing,
-  Contact,
-  Zap,
-  FileText,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
 import type {
-  Feature,
+  FeatureSection,
+  FeatureCarouselItem,
   HeroSlide,
   Step,
   PricingTier,
@@ -52,44 +44,64 @@ export const HERO_SLIDES: HeroSlide[] = [
   },
 ];
 
-export const FEATURES: Feature[] = [
+// Only 2 of the eventual 3 feature sections are drafted so far (see PipelineSection / AISection).
+// Pipeline screenshots are captured from the real app against mocked API data (fictional agency,
+// no real contacts). AI section is still a placeholder — the feature doesn't exist yet.
+export const PIPELINE_HEADLINE = "Your Pipeline Engine";
+
+export const PIPELINE_CAROUSEL_ITEMS: FeatureCarouselItem[] = [
   {
-    icon: Workflow as LucideIcon,
-    title: "Lead pipeline",
+    title: "Your whole book, one board",
     description:
-      "Move leads from New to Converted without dropping a single one. Track stage, owner, and full history in one view.",
+      "Every lead by stage, from New to Converted — who owns it and what's next, at a glance.",
+    imageAlt: "DPA pipeline board with leads by stage",
+    image: "/feature-board.png",
   },
   {
-    icon: BellRing as LucideIcon,
-    title: "Tasks & reminders",
+    title: "One lead, one place",
     description:
-      "Automated email reminders make sure no follow-up call, renewal, or deadline slips through the cracks.",
+      "Contacts, notes, documents, and full history sit on the lead's record instead of scattered across your inbox.",
+    imageAlt: "DPA lead record with contact details, documents, and history",
+    image: "/feature-lead.png",
   },
   {
-    icon: Contact as LucideIcon,
-    title: "Contacts, centralized",
+    title: "Set the rules once",
     description:
-      "Keep every phone number, email, and message thread tied to the right lead — no more digging through your inbox.",
+      "Tasks, emails, and status changes fire on their own as a lead moves through your pipeline.",
+    imageAlt: "DPA workflow automation rule builder",
+    image: "/feature-automations.png",
   },
   {
-    icon: Zap as LucideIcon,
-    title: "Workflow automation",
+    title: "Know what's due today",
     description:
-      "Trigger tasks, emails, and status changes automatically as a lead moves through your pipeline.",
-  },
-  {
-    icon: FileText as LucideIcon,
-    title: "Document storage",
-    description:
-      "Attach quotes, policies, and signed documents directly to a lead's record, so nothing lives in a separate folder.",
-  },
-  {
-    icon: Users as LucideIcon,
-    title: "Team & role management",
-    description:
-      "Organize agents into teams under your agency, with role-based access to keep every book of business in the right hands.",
+      "Follow-ups, renewals, and deadlines land on your task list before they're late.",
+    imageAlt: "DPA task list showing what's due",
+    image: "/feature-tasks.png",
   },
 ];
+
+export const AI_SECTION: FeatureSection = {
+  headline: "Just Ask",
+  description:
+    "A chat built into the system. Ask for what you need, and it's done — no menus, no digging.",
+  imageAlt: "DPA AI chat responding to a prompt",
+  points: [
+    {
+      title: "Ask for a report",
+      description:
+        "Get a straight answer on your pipeline without opening a spreadsheet.",
+    },
+    {
+      title: "Ask it to build",
+      description: "Describe a pipeline or workflow, and it sets it up.",
+    },
+    {
+      title: "Ask it to remind you",
+      description:
+        "Say what to follow up on, and when — it remembers so you don't have to.",
+    },
+  ],
+};
 
 export const HOW_IT_WORKS_STEPS: Step[] = [
   {

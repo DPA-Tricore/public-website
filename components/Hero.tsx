@@ -41,7 +41,7 @@ export default function Hero() {
   const slide = HERO_SLIDES[activeIndex];
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+    <section className="snap-start relative flex min-h-[100svh] min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-6 text-center">
       {HERO_SLIDES.map((s, index) => (
         <video
           key={s.video}

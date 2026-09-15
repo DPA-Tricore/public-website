@@ -1,14 +1,26 @@
-import type { LucideIcon } from "lucide-react";
-
 export interface NavLink {
   label: string;
   href: string;
 }
 
-export interface Feature {
-  icon: LucideIcon;
+export interface FeatureSectionPoint {
   title: string;
   description: string;
+}
+
+export interface FeatureCarouselItem {
+  title: string;
+  description: string;
+  imageAlt: string;
+  image?: string;
+}
+
+export interface FeatureSection {
+  headline: string;
+  description: string;
+  imageAlt: string;
+  image?: string;
+  points: FeatureSectionPoint[];
 }
 
 export interface HeroSlide {
