@@ -8,6 +8,9 @@ export interface FeatureCarouselItem {
   description: string;
   imageAlt: string;
   image?: string;
+  /** Takes precedence over `image` when set. Muted, looping, no controls. */
+  video?: string;
+  poster?: string;
 }
 
 export interface HeroSlide {

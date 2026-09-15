@@ -1,16 +1,41 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface ScreenshotFrameProps {
   imageAlt: string;
   image?: string;
+  video?: string;
+  poster?: string;
   dark?: boolean;
 }
 
 export default function ScreenshotFrame({
   imageAlt,
   image,
+  video,
+  poster,
   dark,
 }: ScreenshotFrameProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Autoplay would decode this while it's still far off screen, which stacks
+  // on top of the hero's videos and makes scrolling stutter.
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) el.play().catch(() => {});
+        else el.pause();
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [video]);
+
   return (
     <div
       className={`flex min-h-[220px] flex-1 flex-col overflow-hidden rounded-2xl border ${
@@ -31,7 +56,20 @@ export default function ScreenshotFrame({
           dark ? "bg-white/5" : "bg-white"
         }`}
       >
-        {image ? (
+        {video ? (
+          <video
+            ref={videoRef}
+            loop
+            muted
+            playsInline
+            preload="none"
+            poster={poster}
+            aria-label={imageAlt}
+            className="absolute inset-0 h-full w-full object-contain"
+          >
+            <source src={video} type="video/mp4" />
+          </video>
+        ) : image ? (
           <Image
             src={image}
             alt={imageAlt}

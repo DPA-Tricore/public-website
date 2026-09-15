@@ -9,6 +9,8 @@ const DEFAULT_SLIDE_DURATION = 6000;
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [inView, setInView] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -17,7 +19,21 @@ export default function Hero() {
     setActiveIndex(index);
   };
 
+  // Decoding four full-screen videos and cycling them on a timer is expensive,
+  // and there's nothing to see once the hero has scrolled away.
   useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.1 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) return;
     const duration = HERO_SLIDES[activeIndex].duration ?? DEFAULT_SLIDE_DURATION;
     timeoutRef.current = setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -25,23 +41,26 @@ export default function Hero() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [activeIndex]);
+  }, [activeIndex, inView]);
 
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (!video) return;
-      if (index === activeIndex) {
+      if (inView && index === activeIndex) {
         video.play().catch(() => {});
       } else {
         video.pause();
       }
     });
-  }, [activeIndex]);
+  }, [activeIndex, inView]);
 
   const slide = HERO_SLIDES[activeIndex];
 
   return (
-    <section className="snap-start relative flex min-h-[100svh] min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+    <section
+      ref={sectionRef}
+      className="snap-start relative flex min-h-[100svh] min-h-[100dvh] flex-col items-center justify-center overflow-hidden px-6 text-center"
+    >
       {HERO_SLIDES.map((s, index) => (
         <video
           key={s.video}
@@ -102,7 +121,7 @@ export default function Hero() {
           smoothScrollTo("features");
         }}
         aria-label="Scroll to see more"
-        className="animate-bounce-arrow absolute inset-x-0 bottom-8 mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white/10"
+        className={`${inView ? "animate-bounce-arrow" : ""} absolute inset-x-0 bottom-8 mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors hover:bg-white/10`}
       >
         <ChevronDown className="h-5 w-5" />
       </a>

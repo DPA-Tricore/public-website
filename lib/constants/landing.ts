@@ -53,8 +53,9 @@ export const PIPELINE_CAROUSEL_ITEMS: FeatureCarouselItem[] = [
     title: "Your whole book, one board",
     description:
       "Every lead by stage, from New to Converted — who owns it and what's next, at a glance.",
-    imageAlt: "DPA pipeline board with leads by stage",
-    image: "/feature-board.png",
+    imageAlt: "Dragging a lead from Qualified to In Negotiation on the DPA board",
+    video: "/feature-board.mp4",
+    poster: "/feature-board-poster.jpg",
   },
   {
     title: "One lead, one place",
@@ -87,7 +88,8 @@ export const AI_CAROUSEL_ITEMS: FeatureCarouselItem[] = [
     description:
       "Get a straight answer on your pipeline without opening a spreadsheet.",
     imageAlt: "DPA AI chat answering a question about pipeline numbers",
-    image: "/feature-ai-report.png",
+    video: "/feature-ai-report.mp4",
+    poster: "/feature-ai-report-poster.jpg",
   },
   {
     title: "Ask it to remind you",
