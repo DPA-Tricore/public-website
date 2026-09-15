@@ -1,51 +1,32 @@
 "use client";
 
-import { FOOTER_COLUMNS, SITE } from "@/lib/constants/landing";
+import { FOOTER_LINKS, SITE } from "@/lib/constants/landing";
 import { smoothScrollTo } from "@/lib/scroll";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-          <div className="col-span-2 sm:col-span-1">
-            <p className="text-lg font-semibold tracking-tight text-foreground">
-              {SITE.name}
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">{SITE.tagline}</p>
-          </div>
+      <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6 py-8 text-sm">
+        <span className="font-medium text-muted-foreground">
+          {SITE.name} &copy; {new Date().getFullYear()}
+        </span>
 
-          {FOOTER_COLUMNS.map((column) => (
-            <div key={column.title}>
-              <p className="text-sm font-semibold text-foreground">
-                {column.title}
-              </p>
-              <ul className="mt-4 space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        if (link.href.length > 1 && link.href.startsWith("#")) {
-                          e.preventDefault();
-                          smoothScrollTo(link.href.slice(1));
-                        }
-                      }}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-12 border-t border-border pt-8 text-sm text-subtle-foreground">
-          © {new Date().getFullYear()} {SITE.name}. All rights reserved.
-        </p>
-      </div>
+        {FOOTER_LINKS.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            onClick={(e) => {
+              if (link.href.length > 1 && link.href.startsWith("#")) {
+                e.preventDefault();
+                smoothScrollTo(link.href.slice(1));
+              }
+            }}
+            className="font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
     </footer>
   );
 }

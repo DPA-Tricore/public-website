@@ -35,8 +35,3 @@ export interface PricingTier {
   ctaLabel: string;
   highlighted: boolean;
 }
-
-export interface FooterColumn {
-  title: string;
-  links: NavLink[];
-}

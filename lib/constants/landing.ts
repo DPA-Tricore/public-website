@@ -3,7 +3,7 @@ import type {
   FeatureCarouselItem,
   HeroSlide,
   PricingTier,
-  FooterColumn,
+  NavLink,
 } from "@/lib/types/landing";
 
 export const SITE = {
@@ -168,26 +168,10 @@ export const PRICING_TIERS: PricingTier[] = [
   },
 ];
 
-export const FOOTER_COLUMNS: FooterColumn[] = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy policy", href: "#" },
-      { label: "Terms of service", href: "#" },
-    ],
-  },
+export const FOOTER_LINKS: NavLink[] = [
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#" },
+  { label: "Privacy & Legal", href: "#" },
 ];
