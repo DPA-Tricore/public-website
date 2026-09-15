@@ -3,24 +3,11 @@ export interface NavLink {
   href: string;
 }
 
-export interface FeatureSectionPoint {
-  title: string;
-  description: string;
-}
-
 export interface FeatureCarouselItem {
   title: string;
   description: string;
   imageAlt: string;
   image?: string;
-}
-
-export interface FeatureSection {
-  headline: string;
-  description: string;
-  imageAlt: string;
-  image?: string;
-  points: FeatureSectionPoint[];
 }
 
 export interface HeroSlide {
@@ -31,10 +18,12 @@ export interface HeroSlide {
   duration?: number;
 }
 
-export interface Step {
-  number: string;
-  title: string;
-  description: string;
+
+export interface About {
+  headline: string;
+  intro: string;
+  photo: string;
+  photoAlt: string;
 }
 
 export interface PricingTier {

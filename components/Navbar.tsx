@@ -10,7 +10,7 @@ export default function Navbar() {
         </Link>
 
         <a
-          href="#"
+          href={SITE.consoleUrl}
           className="text-sm font-medium text-white transition-colors hover:text-white/80"
         >
           Console
