@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface ScreenshotFrameProps {
@@ -19,6 +19,7 @@ export default function ScreenshotFrame({
   dark,
 }: ScreenshotFrameProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [seen, setSeen] = useState(false);
 
   // Autoplay would decode this while it's still far off screen, which stacks
   // on top of the hero's videos and makes scrolling stutter.
@@ -27,10 +28,15 @@ export default function ScreenshotFrame({
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.play().catch(() => {});
-        else el.pause();
+        if (entry.isIntersecting) {
+          setSeen(true);
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
       },
-      { threshold: 0.25 },
+      // Generous margin so the still is ready slightly before the card is.
+      { threshold: 0.25, rootMargin: "300px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -63,7 +69,7 @@ export default function ScreenshotFrame({
             muted
             playsInline
             preload="none"
-            poster={poster}
+            poster={seen ? poster : undefined}
             aria-label={imageAlt}
             className="absolute inset-0 h-full w-full object-contain"
           >

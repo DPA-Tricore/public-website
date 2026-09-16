@@ -71,7 +71,9 @@ export default function Hero() {
           muted
           playsInline
           preload={index === activeIndex ? "auto" : "none"}
-          poster={s.poster}
+          // Only the visible slide needs a still. Posters ignore preload, so
+          // setting all four fetched three images nobody had seen yet.
+          poster={index === activeIndex ? s.poster : undefined}
           className={`absolute inset-0 h-full w-full object-cover object-bottom transition-opacity duration-1000 ease-in-out ${
             index === activeIndex ? "opacity-100" : "opacity-0"
           }`}
