@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 import { ABOUT } from "@/lib/constants/landing";
-import { revealClass, useInView, useReveal } from "@/lib/useReveal";
+import { revealClass, revealHeading, useInView, useReveal } from "@/lib/useReveal";
 
 export default function About() {
-  const { ref, revealed } = useReveal<HTMLElement>(0.6);
+  // Watch the copy itself, not the section. The copy sits at the bottom, so a
+  // section-level observer fires while it's still below the fold and the fade
+  // is over before it's on screen.
+  const { ref, revealed } = useReveal<HTMLDivElement>(0.6);
   // The Ken Burns zoom is an infinite transform on a full-screen image; left
   // running it costs frames across the whole page, not just this section.
   const { ref: photoRef, inView } = useInView<HTMLDivElement>(0.05);
 
   return (
     <section
-      ref={ref}
       id="about"
       className="snap-start relative flex min-h-[100svh] min-h-[100dvh] flex-col justify-end overflow-hidden border-t border-border"
     >
@@ -30,9 +32,9 @@ export default function About() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 sm:pb-24">
+      <div ref={ref} className="relative mx-auto w-full max-w-6xl px-6 pb-20 sm:pb-24">
         <h2
-          className={`max-w-xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl ${revealClass(revealed)}`}
+          className={`max-w-xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl ${revealHeading(revealed)}`}
         >
           {ABOUT.headline}
         </h2>

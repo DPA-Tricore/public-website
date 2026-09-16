@@ -55,10 +55,21 @@ export function useInView<T extends HTMLElement>(threshold = 0.1) {
 
 /** Tailwind needs literal class names, so delays are passed in whole. */
 export const revealClass = (revealed: boolean, delay = "") =>
-  `transition-[opacity,transform] duration-700 ease-out ${delay} motion-reduce:transition-none ${
+  `transition-[opacity,translate] duration-700 ease-out ${delay} motion-reduce:transition-none ${
     revealed
       ? "translate-y-0 opacity-100"
       : "translate-y-4 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
+  }`;
+
+/**
+ * Headings travel further than cards. 16px is imperceptible behind text this
+ * large, and a wide card sliding the same distance reads as heavy.
+ */
+export const revealHeading = (revealed: boolean, delay = "") =>
+  `transition-[opacity,translate] duration-[900ms] ease-out ${delay} motion-reduce:transition-none ${
+    revealed
+      ? "translate-y-0 opacity-100"
+      : "translate-y-10 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
   }`;
 
 export const STAGGER = ["", "delay-100", "delay-200", "delay-300"];

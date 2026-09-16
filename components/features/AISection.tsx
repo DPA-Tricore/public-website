@@ -1,7 +1,7 @@
 "use client";
 
 import { AI_HEADLINE, AI_CAROUSEL_ITEMS } from "@/lib/constants/landing";
-import { revealClass, useReveal } from "@/lib/useReveal";
+import { revealHeading, useReveal } from "@/lib/useReveal";
 import FeatureCarousel from "./FeatureCarousel";
 
 export default function AISection() {
@@ -12,7 +12,7 @@ export default function AISection() {
       <div className="mx-auto w-full max-w-6xl px-6">
         <h2
           ref={ref}
-          className={`max-w-xl text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl ${revealClass(revealed)}`}
+          className={`max-w-xl text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl ${revealHeading(revealed)}`}
         >
           {AI_HEADLINE}
         </h2>
