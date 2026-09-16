@@ -36,5 +36,6 @@ export interface PricingTier {
   description: string;
   features: string[];
   ctaLabel: string;
+  ctaAction: "signup" | "demo";
   highlighted: boolean;
 }

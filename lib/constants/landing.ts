@@ -9,7 +9,10 @@ import type {
 export const SITE = {
   name: "DPA",
   tagline: "The CRM built for insurance brokers",
+  // Console goes to sign-in; a trial needs the sign-up form instead.
   consoleUrl: "https://app.dpatricore.com",
+  signupUrl: "https://app.dpatricore.com/signup",
+  demoUrl: "https://cal.com/vencheang-heng-bbxcu3/30min",
 };
 
 export const HERO_SLIDES: HeroSlide[] = [
@@ -137,6 +140,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "CSV import & export",
     ],
     ctaLabel: "Start free trial",
+    ctaAction: "signup",
     highlighted: false,
   },
   {
@@ -152,6 +156,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Document storage",
     ],
     ctaLabel: "Start free trial",
+    ctaAction: "signup",
     highlighted: true,
   },
   {
@@ -165,7 +170,8 @@ export const PRICING_TIERS: PricingTier[] = [
       "Priority support",
       "Custom contract terms",
     ],
-    ctaLabel: "Contact sales",
+    ctaLabel: "Book a demo",
+    ctaAction: "demo",
     highlighted: false,
   },
 ];
