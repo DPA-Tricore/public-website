@@ -2,7 +2,7 @@
 
 import { Check } from "lucide-react";
 import { PRICING_TIERS, SITE } from "@/lib/constants/landing";
-import { STAGGER, revealClass, revealHeading, useReveal } from "@/lib/useReveal";
+import { STAGGER, revealScale, useReveal } from "@/lib/useReveal";
 
 export default function Pricing() {
   const { ref, revealed } = useReveal<HTMLDivElement>(0.5);
@@ -14,12 +14,12 @@ export default function Pricing() {
     >
       <div ref={ref} className="mx-auto w-full max-w-6xl px-6">
         <h2
-          className={`max-w-xl text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-4xl ${revealHeading(revealed)}`}
+          className={`max-w-xl text-balance text-3xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-4xl ${revealScale(revealed)}`}
         >
           Simple, transparent pricing
         </h2>
         <p
-          className={`mt-4 max-w-lg text-balance text-xl leading-8 text-muted-foreground ${revealClass(revealed, "delay-100")}`}
+          className={`mt-4 max-w-lg text-balance text-xl leading-8 text-muted-foreground ${revealScale(revealed, "delay-100")}`}
         >
           Start free. Upgrade as your team grows.
         </p>
@@ -28,7 +28,7 @@ export default function Pricing() {
           {PRICING_TIERS.map((tier, i) => (
             <div
               key={tier.name}
-              className={`flex flex-col rounded-2xl border p-6 ${revealClass(
+              className={`flex flex-col rounded-2xl border p-6 ${revealScale(
                 revealed,
                 STAGGER[(i + 1) % STAGGER.length],
               )} ${
@@ -80,7 +80,7 @@ export default function Pricing() {
         </div>
 
         <p
-          className={`mt-8 text-sm text-subtle-foreground ${revealClass(revealed, "delay-300")}`}
+          className={`mt-8 text-sm text-subtle-foreground ${revealScale(revealed, "delay-300")}`}
         >
           Placeholder pricing — figures above are for layout purposes only.
         </p>

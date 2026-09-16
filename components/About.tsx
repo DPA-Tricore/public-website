@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ABOUT } from "@/lib/constants/landing";
-import { revealClass, revealHeading, useInView, useReveal } from "@/lib/useReveal";
+import { revealBlur, useInView, useReveal } from "@/lib/useReveal";
 
 export default function About() {
   // Watch the copy itself, not the section. The copy sits at the bottom, so a
@@ -34,17 +34,17 @@ export default function About() {
 
       <div ref={ref} className="relative mx-auto w-full max-w-6xl px-6 pb-20 sm:pb-24">
         <h2
-          className={`max-w-xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl ${revealHeading(revealed)}`}
+          className={`max-w-xl text-balance text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl ${revealBlur(revealed)}`}
         >
           {ABOUT.headline}
         </h2>
         <p
-          className={`mt-6 max-w-xl text-balance text-xl leading-8 text-white/80 ${revealClass(revealed, "delay-100")}`}
+          className={`mt-6 max-w-xl text-balance text-xl leading-8 text-white/80 ${revealBlur(revealed, "delay-150")}`}
         >
           {ABOUT.intro}
         </p>
         <p
-          className={`mt-8 text-sm text-white/40 ${revealClass(revealed, "delay-200")}`}
+          className={`mt-8 text-sm text-white/40 ${revealBlur(revealed, "delay-300")}`}
         >
           Placeholder team photo — for layout only, replace before launch.
         </p>

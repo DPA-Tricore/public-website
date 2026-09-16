@@ -72,4 +72,26 @@ export const revealHeading = (revealed: boolean, delay = "") =>
       : "translate-y-10 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
   }`;
 
+/**
+ * Management: copy resolves into focus over the photo instead of sliding.
+ * Suits a photographic background, where vertical motion fights the image.
+ */
+export const revealBlur = (revealed: boolean, delay = "") =>
+  `transition-[opacity,filter] duration-1000 ease-out ${delay} motion-reduce:transition-none ${
+    revealed
+      ? "opacity-100 blur-none"
+      : "opacity-0 blur-md motion-reduce:opacity-100 motion-reduce:blur-none"
+  }`;
+
+/**
+ * Pricing and the closing CTA: settles forward rather than rising. These are
+ * the decision screens, so the content arrives rather than scrolls past.
+ */
+export const revealScale = (revealed: boolean, delay = "") =>
+  `transition-[opacity,scale] duration-700 ease-out ${delay} motion-reduce:transition-none ${
+    revealed
+      ? "opacity-100 scale-100"
+      : "opacity-0 scale-95 motion-reduce:opacity-100 motion-reduce:scale-100"
+  }`;
+
 export const STAGGER = ["", "delay-100", "delay-200", "delay-300"];
