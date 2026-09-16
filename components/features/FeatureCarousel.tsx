@@ -15,7 +15,7 @@ export default function FeatureCarousel({ items, dark }: FeatureCarouselProps) {
   return (
     <div
       ref={ref}
-      className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] pr-6 scroll-pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]"
+      className="flex snap-x snap-mandatory gap-6 overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2 pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))] pr-6 scroll-pl-[max(1.5rem,calc((100vw-72rem)/2+1.5rem))]"
     >
       {items.map((item, i) => (
         <div
