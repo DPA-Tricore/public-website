@@ -13,6 +13,7 @@ export const SITE = {
   consoleUrl: "https://app.dpatricore.com",
   signupUrl: "https://app.dpatricore.com/signup",
   demoUrl: "https://cal.com/vencheang-heng-bbxcu3/30min",
+  email: "dpatricore@gmail.com",
 };
 
 export const HERO_SLIDES: HeroSlide[] = [
@@ -180,6 +181,6 @@ export const FOOTER_LINKS: NavLink[] = [
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
   { label: "Privacy & Legal", href: "#" },
 ];
