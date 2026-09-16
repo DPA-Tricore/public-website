@@ -65,7 +65,35 @@ body {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out both;
+  animation-name: fade-up;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+/* Headings travel further than body copy, matching the scroll reveals. */
+@keyframes fade-up-lg {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up-lg {
+  animation-name: fade-up-lg;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up-lg {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
